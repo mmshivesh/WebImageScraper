@@ -4,7 +4,7 @@ import requests
 import json
 import pickle
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(description="Google Image Dataset Scraper")
 
 parser.add_argument('-v',action='store_true', default=False, help='Debug/verbose mode')
 parser.add_argument('-c',action='store_true', default=False, help='Cache images offline in a pickle object')
