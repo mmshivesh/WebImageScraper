@@ -9,6 +9,9 @@ class downloader:
 		self.downloadurls = []
 	
 	def get_urls(self, cache=True):
+		if self.search_term is None:
+			print("The search term is empty. If you have a cache pickle file, use the -p argument")
+			return
 		url = 'https://www.google.com/search?tbm=isch&q='
 		search_string=self.search_term.replace(' ', '+')
 		search_url = url + urllib.parse.quote(search_string, safe='').replace('-','%2D')
@@ -101,6 +104,8 @@ if __name__ == '__main__':
 
 
 	x = downloader(args.search_string, verbose_mode=args.v)
-	# x.get_urls(cache=args.c)
-	x.load_from_cache(args.pickle_location)
+	if args.search_string is not None:
+		x.get_urls(cache=args.c)
+	elif args.pickle_location is not None:
+		x.load_from_cache(args.pickle_location)
 	x.download(download_location=args.download_location)
