@@ -29,7 +29,6 @@ class downloader:
 		if cache:
 			if not os.path.exists('./caches/'):
 				os.mkdir('caches')
-			# TODO : Auto search the cache first for a cache file. if not, then access the internet
 			fname = './caches/' + search_string.replace('+','_') + '.cache'
 			print(f"caching query to file: {fname}...")
 			fp = open(fname,'wb')
@@ -72,7 +71,6 @@ class downloader:
 			# Print progress
 			self.printprogress(no)
 			# Download the URLs
-			# TODO : Parallelize the downloads in threads
 			response = requests.get(url)
 			if response.ok:
 				with open(final_path+'/'+file_name, 'wb') as imagefile:
