@@ -14,7 +14,7 @@ Download images (upto 100 currently). To use this, download the scraper.py and r
 
 `-s`	-	(s)earch term.
 
-`-c`	-	Include this flag to (c)ache the search query. The searches are cached using a simple pickle file at the location of `scraper.py` within the subfolder `/caches` with the same filename as the search query and extension `.cache`.
+`-c`	-	Include this flag to (c)ache the search query. The searches are cached using a simple pickle file at the location of `scraper.py` within a subfolder `/caches` with the same filename as that of the search query and an extension `.cache`. The pickle file is a simple list of urls.
 
 `-p`	-	If you wish to download from a pre-existing cache file, include the (p)ath of the cache file after this argument.
 
