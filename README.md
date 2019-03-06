@@ -4,4 +4,4 @@ Scrape images from Google Images
 
 
 Todo:
-- [ ] Increase downloaded image count (currently 100)
+- [ ] Increase downloaded image count per run (currently 100)

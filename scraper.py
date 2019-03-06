@@ -3,6 +3,16 @@ import argparse
 import requests
 import json
 import pickle
+import os,sys
+import urllib.parse
+
+def progress(count, total, status=''):
+    bar_len = 60
+    filled_len = int(round(bar_len * count / float(total)))
+    percents = round(100.0 * count / float(total), 1)
+    bar = '=' * filled_len + '-' * (bar_len - filled_len)
+    sys.stdout.write('[%s] %s%s ...%s\r' % (bar, percents, '%', status))
+    sys.stdout.flush()
 
 parser = argparse.ArgumentParser(description="Google Image Dataset Scraper")
 
@@ -20,7 +30,7 @@ if args.pickle_location==None:
 	if args.search_string==None:
 		args.search_string = input("Enter a search query : ")
 	search_string=args.search_string.replace(' ', '+')
-	search_url = url + search_string
+	search_url = url + urllib.parse.quote(search_string, safe='').replace('-','%2D')
 	if args.v:
 		print(f"The search url is : {search_url}")
 
@@ -36,13 +46,17 @@ if args.pickle_location==None:
 	print(f'Obtained {len(downloadurls)} image urls')
 
 	if args.c:
-		fname = search_string.replace('+','_')
+		if not os.path.exists('./caches/'):
+			os.mkdir('caches')
+		fname = './caches/' + search_string.replace('+','_') + '.cache'
 		print(f"caching query to file: {fname}...")
 		fp = open(fname,'wb')
 		pickle.dump(downloadurls, fp)
 		fp.close()
 else:
 	fp = open(args.pickle_location,'rb')
-	links = pickle.load(fp)
+	downloadurls = pickle.load(fp)
 	if args.v:
-		print(links)
+		print(downloadurls)
+
+# Now since we have the links, create the file names and download it to downloads/<query>/<img name> folder
