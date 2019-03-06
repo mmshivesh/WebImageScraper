@@ -13,9 +13,13 @@ Download images (upto 100 currently). To use this, download the scraper.py and r
 The arguments supported are:
 
 `-s`	-	(s)earch term.
+
 `-c`	-	Include this flag to (c)ache the search query. The searches are cached using a simple pickle file at the location of `scraper.py` within the subfolder `/caches` with the same filename as the search query and extension `.cache`.
+
 `-p`	-	If you wish to download from a pre-existing cache file, include the (p)ath of the cache file after this argument.
+
 `-d`	-	Choose the location to (d)ownload the files. A `downloads` folder is created at the location and the image files are stored in a subdirectory with the name of the search term. 
+
 `-v`	-	(V)erbose mode to see the intermediate steps
 
 The implementation is in a class. The class `downloader` is initialized with the following:
