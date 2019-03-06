@@ -72,6 +72,7 @@ class downloader:
 			# Print progress
 			self.printprogress(no)
 			# Download the URLs
+			# TODO : Parallelize the downloads in threads
 			response = requests.get(url)
 			if response.ok:
 				with open(final_path+'/'+file_name, 'wb') as imagefile:
