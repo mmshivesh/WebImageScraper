@@ -10,7 +10,7 @@ Download images (upto 100 currently). To use this, download the scraper.py and r
 
 `python3 scraper.py`
 
-The arguments supported are:
+### Arguments:
 
 `-s`	-	(s)earch term.
 
@@ -21,6 +21,8 @@ The arguments supported are:
 `-d`	-	Choose the location to (d)ownload the files. A `downloads` folder is created at the location and the image files are stored in a subdirectory with the name of the search term. 
 
 `-v`	-	(V)erbose mode to see the intermediate steps
+
+### Class:
 
 The implementation is in a class. The class `downloader` is initialized with the following:
 
