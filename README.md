@@ -3,7 +3,7 @@
 Scrape images from Google Images
 
 ## Dependencies:
-Requests and BeautifulSoup
+Depends on Requests and BeautifulSoup Libraries
 
 ## Usage:
 Download images (upto 100 currently). To use this, download the scraper.py and run,
@@ -34,7 +34,7 @@ The Methods provided involve:
 3. `download` - Downloads the images into the location specified by the `download_location` parameter
 4. `load_from_cache`	-	Load the download urls from the cache file into `downloadurls`.
 
-Todo:
+## Todo:
 - [ ] Auto search the cache first for a cache file. Access Google Images only upon a cache miss
 - [ ] Parallelize the downloads in threads
 - [ ] Increase downloaded image count per run (currently 100)
